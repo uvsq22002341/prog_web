@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Ajouter une Tâche{% endblock %}
+{% block content %}
+<form method='POST'>
+    {% if request.method == 'POST' %}
+    <div class="alert alert-warning">
+        Vous n'avez pas pu ajouter la tâche &#9785;
+    </div>
+    {% endif %}
+    <div class="mb-3">
+      <label for="nom_tache" class="form-label">Nom de la Tâche</label>
+      {{ form.nom_tache(id='nom_tache', class_ = 'form-control') }}
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      {{ form.description(id='description', class_ = 'form-control') }}
+    </div>
+    <div class="mb-3">
+      <label for="date_creation" class="form-label">Date de Création</label>
+      {{ form.date_creation(id='date_creation', class_ = 'form-control') }}
+    </div>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    <button type="submit" class="btn btn-primary">Ajouter la Tâche</button>
+</form>
+{% endblock %}

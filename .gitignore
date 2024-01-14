@@ -1,0 +1,8 @@
+__pycache__/
+*.manifest
+*.spec
+*.log
+*.sqlite
+.venv
+venv
+flask_session
